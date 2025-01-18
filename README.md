@@ -8,23 +8,26 @@ on the [Naver](https://developers.naver.com/docs/login/overview).
 
 Add this line to your application's Gemfile:
 
+Add to your `Gemfile`:
 ```ruby
-gem 'omniauth-naver'
+gem 'sb-omniauth-naver', git: git@github.com:ScriptonBasestar/sb-omniauth-naver.git
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install omniauth-naver
+Then `bundle install`.
 
 ## Usage
 
+### Rails
+
+Rails Middleware 편집
+
+`config/initializers/omniauth.rb`:
 ```ruby
-use OmniAuth::Builder do
-  provider :naver, ENV['NAVER_KEY'], ENV['NAVER_SECRET']
+Rails.application.config.middleware.use OmniAuth::Builder do
+  # 3 중 1
+  provider :naver, ENV['NAVER_CLIENT_ID']
+  provider :naver, ENV['NAVER_CLIENT_ID'], ENV['NAVER_CLIENT_SECRET']
+  provider :naver, ENV['NAVER_CLIENT_ID'], {:redirect_path => ENV['NAVER_REDIRECT_URL']}
 end
 ```
 
@@ -68,10 +71,5 @@ Here's an example *Auth Hash* available in `request.env['omniauth.auth']`:
 }
 ```
 
-## Contributing
-
-1. Fork it ( https://github.com/kimsuelim/omniauth-naver/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+## Contributors
+Issue or Fork PR
