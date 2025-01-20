@@ -7,8 +7,8 @@ module OmniAuth
 
       option :client_options, {
         :site => 'https://nid.naver.com',
-        :authorize_url => 'https://nid.naver.com/oauth2.0/authorize',
-        :token_url => 'https://nid.naver.com/oauth2.0/token',
+        :authorize_url => '/oauth2.0/authorize',
+        :token_url => '/oauth2.0/token',
       }
 
       uid { raw_properties['id'].to_s }
@@ -41,7 +41,12 @@ module OmniAuth
       end
 
       def raw_info
+        OmniAuth.logger.send :debug, "raw_info >>>>>>>>>>"
+        OmniAuth.logger.send :debug, "access_token: #{access_token.token}"
         @raw_info ||= access_token.get('https://openapi.naver.com/v1/nid/me').parsed
+        OmniAuth.logger.send :debug, "raw_info: #{@raw_info}"
+        OmniAuth.logger.send :debug, "raw_info ----------" 
+        @raw_info
       end
 
       def raw_properties
