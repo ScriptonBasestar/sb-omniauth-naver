@@ -6,9 +6,9 @@ module OmniAuth
       option :name, 'naver'
 
       option :client_options, {
-        :site => 'https://nid.naver.com',
-        :authorize_url => '/oauth2.0/authorize',
-        :token_url => '/oauth2.0/token',
+        site: 'https://nid.naver.com',
+        authorize_url: 'https://nid.naver.com/oauth2.0/authorize',
+        token_url: 'https://nid.naver.com/oauth2.0/token',
       }
 
       uid { raw_properties['id'].to_s }
@@ -24,7 +24,7 @@ module OmniAuth
       end
 
       extra do
-        {:raw_info => raw_info}
+        {raw_info: raw_info}
       end
 
       private
