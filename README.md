@@ -11,6 +11,10 @@ Add this line to your application's Gemfile:
 Add to your `Gemfile`:
 ```ruby
 gem 'sb-omniauth-naver', git: git@github.com:ScriptonBasestar/sb-omniauth-naver.git
+
+or
+
+gem "sb-omniauth-naver", "0.3.3", source: "https://rubygems.pkg.github.com/scriptonbasestar"
 ```
 
 Then `bundle install`.

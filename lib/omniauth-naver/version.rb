@@ -1,5 +1,5 @@
 module Omniauth
   module Naver
-    VERSION = '0.2.0'.freeze
+    VERSION = '0.3.3'.freeze
   end
 end
